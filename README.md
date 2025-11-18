@@ -34,7 +34,7 @@ A serverless AWS-based system for processing fleet telemetry events and sending 
 ### 1. Install Dependencies
 
 ```bash
-npm install
+yarn install
 ```
 
 ### 2. Configure Amazon SES
