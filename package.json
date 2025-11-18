@@ -1,0 +1,17 @@
+{
+  "name": "fews-project",
+  "version": "2.0.0",
+  "description": "Fleet Early Warning System - Production Ready",
+  "main": "src/handlers/ingest.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@aws-sdk/client-sqs": "^3.933.0",
+    "@aws-sdk/client-ses": "^3.933.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}
