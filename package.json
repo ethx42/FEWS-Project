@@ -4,7 +4,9 @@
   "description": "Fleet Early Warning System - Production Ready",
   "main": "src/handlers/ingest.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "NODE_OPTIONS='--no-deprecation' serverless deploy",
+    "deploy:prod": "NODE_OPTIONS='--no-deprecation' serverless deploy --stage prod"
   },
   "dependencies": {
     "@aws-sdk/client-sqs": "^3.933.0",
