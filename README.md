@@ -235,8 +235,6 @@ aws logs filter-log-events \
 2. Logs → Log groups
 3. Search for `/aws/lambda/fleet-warning-system-prod-ingest` or `...prod-worker`
 
-📖 **See [VIEW_LOGS.md](./VIEW_LOGS.md) for complete logs guide**
-
 ### Check Queue Status
 
 **Option 1: Use helper script (recommended)**
