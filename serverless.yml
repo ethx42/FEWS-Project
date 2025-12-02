@@ -11,6 +11,7 @@ provider:
     apiKeys:
       - name: fleet-api-key-${sls:stage}
         description: API key for fleet telemetry ingestion
+        value: ${env:API_KEY_VALUE, ''}
     usagePlan:
       throttle:
         rateLimit: 15
@@ -24,7 +25,6 @@ provider:
 
   iam:
     role:
-      name: fleet-warning-system-lambda-role-${sls:stage}
       statements:
         - Effect: Allow
           Action:
@@ -40,6 +40,7 @@ provider:
             - sqs:ChangeMessageVisibility
           Resource:
             - Fn::GetAtt: [FleetEventsQueue, Arn]
+            - Fn::GetAtt: [FleetEventsDLQ, Arn]
 
         - Effect: Allow
           Action:
@@ -69,6 +70,7 @@ functions:
     handler: src/handlers/worker.handler
     timeout: 60
     memorySize: 256
+    # reservedConcurrency: 10
     events:
       - sqs:
           arn:
@@ -78,7 +80,6 @@ functions:
 
 resources:
   Resources:
-
     FleetEventsQueue:
       Type: AWS::SQS::Queue
       Properties:
